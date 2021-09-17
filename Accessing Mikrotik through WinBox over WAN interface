@@ -1,0 +1,16 @@
+By default, Mikrotik will not allow a connection from WinBox over the WAN.  Here is how you change that.
+
+From WinBox:
+
+    1 - Click on IP, then Firewall, then Filter Rules.
+    2 - Click the + to add a new rule.
+    3 - Change Chain to input.
+    4 - Change Protocol to tcp.
+    5 - Change Dst. Port to 8291.
+    6 - Click on the Action tab and make sure Action is set to accept.
+    7 - Click Comment and name it something like “Winbox By WAN”, Click OK.
+    
+    #MOST IMPORTANT RULE
+    
+    Your new Filter Rule will be at the bottom of the list. Drag it UP above the last “drop” rule from the default configuration.
+    Because filter Rules are matched in order. They start at the top and work through each one.  If your new rule is AFTER the “drop” rule, it will not work.
